@@ -1,0 +1,63 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #0047a8;
+    text-align: center;
+    padding: 1px 0 10px;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+h1 {
+    font-size: 40px;
+    color: white
+}
+
+a {
+    font-size: 23px;
+    text-decoration: none;
+    color: white;
+    padding-right: 30px;
+    text-decoration: underline
+}
+
+a:hover {
+    color: white;
+}
+
+img {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    padding: 0 30px;
+}
+
+form {
+    background: lightgray;
+    text-align: center;
+    font-size: 22px;
+    width: 50%;
+    padding: 10px 0;
+    margin: auto;
+}
+
+label[for="queries"] {
+    vertical-align: top;
+}
+
+input[type=textarea] {
+    height: 50px;
+    margin-top: 10px;
+}
