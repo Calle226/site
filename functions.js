@@ -6,7 +6,7 @@ $(document).on("scroll", function () {
     }
 });
 
-/*$('a[href*="#"]')
+$('a[href*="#"]')
 .not('[href="#"]')
 .not('[href="#0"]')
 .click(function (event) {
@@ -29,4 +29,4 @@ $(document).on("scroll", function () {
                 });
             }
         }
-    });*/
+    });

@@ -3,77 +3,71 @@
 	<head>
 		<title>My Site</title>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	</head>
 	<body>
+        <a name="top"></a>
         <header>
-            <h1>Callaghan Development</h1>
+            <a href="#top"><h1>Callaghan Development</h1></a>
             <nav>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
+                <div>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
             </nav>
         </header>
-        <div>
+        <div id="hero">
             <div>
                 <h2>London based Web Developer creating responsive websites, tailored for you.</h2>
             </div>
         </div>
-        <h3>About</h3>
-        <section id="about">
-            <p>Elit officia qui distinguantur. Ad doctrina ea incididunt iis labore est a sunt 
-                litteris, laborum dolore quid aut quorum sed se ut sunt mentitum. Enim e 
-                cupidatat qui nulla quo non quis qui noster, officia elit tempor, multos 
-                exquisitaque probant summis excepteur. Legam eiusmod id officia, eram probant 
-                distinguantur. Ut quae ea dolore eu dolore quamquam ea excepteur, se consequat 
-                tractavissent, o summis fidelissimae, cillum officia nam ingeniis sed dolore 
-                quibusdam de cillum eram iis possumus quo dolor offendit nam commodo fugiat 
-                magna cernantur lorem. Ex incurreret nam incididunt, est id velit cillum veniam, 
-                ex tempor do commodo, a ullamco imitarentur. Ut officia familiaritatem.</p>
-        </section>
-        <h3>Services</h3>
-        <section id="services">
-            <div>
-                <p>Front-end Design</p><br>
-                <p>Proficient in HTML and CSS, meaning you have complete flexibility in the content and design of your site.</p>
-            </div>
-            <div>
-                <p>Front-end Development</p><br>
-                <p>Experienced with JavaScript so that static webpage can be turned into something more dynamic.</p>
-            </div>
-            <div>
-                <p>Back-end Development</p><br>
-                <p>Need something more complex? Using PHP your site could do anything from sending emails to filling out databases.</p>
-            </div>
-        </section>
-        <h3>Contact</h3>
-        <section id="contact">
-            <p>Any queries or questions?<br>Just fill out the form below and I'll get back to you as soon as possible.</p>
-            <form>
-                <label for="name">Name:</label>
-                <input name="name" type="text"><br>
-                <label for="email">Email:</label>
-                <input name="email" type="email"><br>
-                <label for="queries">Query:</label>
-                <input name="queries" type="textarea"><br>
-                <button type="submit">Submit Form</button>
-            </form>
-        </section>
+            <div class="wrapper">
+            <span id="about"></span>
+            <h3>About</h3>
+            <section>
+                <p>Professional Web Developer based in North West London doing freelance work in my spare time. Open to creating any website you need, be it personal or for your business. Happy to create some drafts based on your basic needs if your unsure of exactly what design or more advanced features you want for your site.<br><br>Currently working as a Web Developer for an IT Support company where I've been responsible for managing the company site, and creating websites and web-based software.<br><br>Plenty of experience in a languages like HTML, CSS JavaScript, PHP, and Java, as well as additonal technologies including databases and web hosting.</p>
+            </section>
+            <span id="services"></span>
+            <h3>Services</h3>
+            <section id="services">
+                <div>
+                    <p>Front-end Design</p><br>
+                    <p>Proficient in HTML and CSS, meaning you have complete flexibility in the content and design of your site.</p>
+                </div>
+                <div>
+                    <p>Front-end Development</p><br>
+                    <p>Experienced with JavaScript so that static webpage can be turned into something more dynamic.</p>
+                </div>
+                <div>
+                    <p>Back-end Development</p><br>
+                    <p>Need something more complex? Using PHP your site could do anything from sending emails to filling out databases.</p>
+                </div>
+            </section>
+            <span id="contact"></span>
+            <h3>Contact</h3>
+            <section>
+                <p>Any queries or questions?<br>Just fill out the form below and I'll get back to you as soon as possible.</p>
+                <form>
+                    <input placeholder="Name" name="name" type="text" required><br>
+                    <input placeholder="Email" name="email" type="email" required><br>
+                    <textarea placeholder="Message" name="message" required></textarea><br>
+                    <button type="submit">Submit Form</button>
+                </form>
+            </section>
+        </div>
         <footer>
             <p>&copy; Callaghan Development</p>
         </footer>
         <!--[if lt IE 9]>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js""></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <![endif]-->
         <!--[if gte IE 9]>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js""></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <![endif]-->
-        <script>
-            if (!window.jQuery) {
-                document.write('<script src="C:\Users\Elliot\Documents\site"><\/script>');
-            }
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="functions.js"></script>
 	</body>
 </html>
