@@ -110,13 +110,14 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+    flex-wrap: wrap;
 }
 
 #services div {
     background: white;
     margin: 10px;
     width: 30%;
+    overflow: auto;
     text-align: center;
     border: solid black 1px;
     font-size: 25px;
@@ -128,7 +129,7 @@ form {
     text-align: center;
     font-size: 22px;
     width: 60%;
-    height: 400px;
+    height: 430px;
     padding: 10px 0;
     margin: auto;
     font-size: 25px;
@@ -169,7 +170,7 @@ section p {
 section>p:first-child {
     margin: 0 auto;
     width: 60%;
-    word-spacing: 3px
+    word-spacing: 3px;
 }
 
 #services p:first-child {
@@ -179,7 +180,7 @@ section>p:first-child {
 #services p:nth-of-type(2) {
     font-size: 20px;
     margin-top: -55px;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 input[type=text], input[type=email], textarea {
@@ -197,16 +198,19 @@ textarea {
     margin-top: 5px;
 }
 
-button {
+input[type=submit] {
     background: black;
     color: white;
     height: 35px;
-    /*width: 100px;*/
     cursor: pointer;
 }
 
-button:hover {
-   background: #585454;
+input[type=submit]:hover {
+    margin-top: 10px;
+}
+
+input[type=submit]:active {
+    margin-top: -10px;
 }
 
 footer {

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>My Site</title>
+		<title>Callaghan Development</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -28,7 +28,7 @@
             <span id="about"></span>
             <h3>About</h3>
             <section>
-                <p>Professional Web Developer based in North West London doing freelance work in my spare time. Open to creating any website you need, be it personal or for your business. Happy to create some drafts based on your basic needs if your unsure of exactly what design or more advanced features you want for your site.<br><br>Currently working as a Web Developer for an IT Support company where I've been responsible for managing the company site, and creating websites and web-based software.<br><br>Plenty of experience in a languages like HTML, CSS JavaScript, PHP, and Java, as well as additonal technologies including databases and web hosting.</p>
+                <p>Professional Web Developer based in North West London doing freelance work in my spare time. Open to creating any website you need, be it personal or for your business. Happy to create some drafts based on your basic needs if your unsure of exactly what design or more advanced features you want for your site.<br><br>Currently working as a Web Developer for an IT Support company where I've been responsible for managing the company site, and creating websites and web-based software.<br><br>Plenty of experience in languages like HTML, CSS JavaScript, PHP, and Java, as well as additonal technologies including databases and web hosting.</p>
             </section>
             <span id="services"></span>
             <h3>Services</h3>
@@ -45,16 +45,25 @@
                     <p>Back-end Development</p><br>
                     <p>Need something more complex? Using PHP your site could do anything from sending emails to filling out databases.</p>
                 </div>
+                <div>
+                    <p>SEO Consultancy</p><br>
+                    <p>With experience managing the SEO of a successful IT company, you can be sure your website will get the attention it deserves.</p>
+                </div>
+                <div>
+                    <p>Site Maintenance</p><br>
+                    <p>Change your mind about something? Or maybe you want to implement an exciting new feature? I'm always available for upgrades or changes down the line.</p>
+                </div>
             </section>
             <span id="contact"></span>
             <h3>Contact</h3>
             <section>
                 <p>Any queries or questions?<br>Just fill out the form below and I'll get back to you as soon as possible.</p>
-                <form>
+                <form method="post" action="submit.php">
                     <input placeholder="Name" name="name" type="text" required><br>
                     <input placeholder="Email" name="email" type="email" required><br>
+                    <input placeholder="Subject" name="subject" type="text" required><br>
                     <textarea placeholder="Message" name="message" required></textarea><br>
-                    <button type="submit">Submit Form</button>
+                    <input type="submit">Submit Form
                 </form>
             </section>
         </div>
