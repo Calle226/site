@@ -1,50 +1,70 @@
 <?php
-$name = $email = $subject = $message = "";
+$name = $email = $subject = $message = '';
 $ip = $_SERVER['REMOTE_ADDR'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $email = test_input($_POST["email"]);
-  //$subject = test_input($_POST["subject"]);
-  //$message = test_input($_POST["message"]);
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (empty($_POST['name']) {
+        echo 'Name is required';
+    } else {
+        $name = $_POST['name'];
+    }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+    if (empty($_POST['email']) {
+        echo 'Email is required';
+    } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+        echo 'Invalid email';
+    } else {
+        $email = $_POST['email'];
+    }
 
-$hostname = "db711614191.db.1and1.com";
-$username = "dbo711614191";
-$password = "Trappist-1";
-$dbname = "db711614191";
+    if (empty($_POST['message']) {
+        echo 'Message is required';
+    } else {
+        $message = $_POST['message'];
+    }
 
-try {
-    $conn = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $hostname = 'db711614191.db.1and1.com';
+    $username = 'dbo711614191';
+    $password = 'Trappist-1';
+    $dbname = 'db711614191';
+    $port = '3306';
 
-    // prepare sql and bind parameters
+    $conn = new PDO("mysql:host=$hostname;dbname=$dbname;port=$port", $username, $password);
+
     $stmt = $conn->prepare("INSERT INTO submissions (name, email, ip) 
     VALUES (:name, :email, :ip)");
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':ip', $ip);
 
-    // insert a row
-    $name = $name;
-    $email = $email;
-    $ip = $ip;
+    $stmt->bindParam(":name", $name);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":ip", $ip);
+
     $stmt->execute();
 
-    echo "New records created successfully";
-}
+    $conn = $stmt = null;
+    
+    require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require 'PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require 'PHPMailer-master/PHPMailer-master/src/SMTP.php';
 
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
+    $mail = new PHPMailer\PHPMailer\PHPMailer;
+        $mail->SMTPDebug = 1; //0 = nothing; 1 = error and messages; 2 = messages only
+        $mail->isSMTP();
+        $mail->Host = 'auth.smtp.1and1.co.uk';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'elliot@elliotcallaghan.co.uk';
+        $mail->Password = 'Trappist-1';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 587;
 
-$conn = $stmt = null;
+        $mail->setFrom('.$email.', '.$name.');
+        $mail->addAddress('elliot@elliotcallaghan.co.uk');
+
+        $mail->isHTML(true);
+        $mail->Subject = '.$subject.';
+        $mail->Body = '.$message.';
+
+        $mail->send();
+
+    echo 'Message sent.';
+}
 ?>
