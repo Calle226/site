@@ -58,12 +58,13 @@
             <h3>Contact</h3>
             <section>
                 <p>Any queries or questions?<br>Just fill out the form below and I'll get back to you as soon as possible.</p>
-                <form method="post" action="submit.php">
+                <form method="POST" action="submit.php">
                     <input placeholder="Name" name="name" type="text" required><br>
-                    <input placeholder="Email" name="email" type="email" required><br>
+                    <input placeholder="Email Address" name="email" type="email" required><br>
                     <input placeholder="Subject" name="subject" type="text" required><br>
                     <textarea placeholder="Message" name="message" required></textarea><br>
-                    <input type="submit">Submit Form
+                    <input type="submit" id="button">
+                    <div id="received"></div>
                 </form>
             </section>
         </div>

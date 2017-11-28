@@ -153,6 +153,20 @@ form {
         padding: 5px;
         display: block
     }
+    
+    header {
+        transition: all 0.1s ease-in-out;
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+    }
+    
+    h1 {
+        font-size: 23px;
+    }
+    
+    div a {
+        font-size: 23px;
+    }
 }
 
 h3 {
