@@ -45,6 +45,10 @@ div a {
     transition: all 1s ease;
 }
 
+div a:hover {
+    color: #9f9f9f;
+}
+
 .shrink {
     padding: 5px 0 40px;
 }
@@ -129,14 +133,17 @@ form {
     text-align: center;
     font-size: 22px;
     width: 60%;
-    height: 430px;
+    height: 460px;
     padding: 10px 0;
     margin: auto;
     font-size: 25px;
-    display: block
 }
 
 @media screen and (max-width: 920px) {
+    #about p:nth-child(1) {
+        width: 90%;
+    }
+    
     #services {
         display: flex;
         flex-direction: column;
@@ -151,7 +158,7 @@ form {
     form {
         width: 80%;
         padding: 5px;
-        display: block
+        
     }
     
     header {
@@ -212,19 +219,25 @@ textarea {
     margin-top: 5px;
 }
 
-input[type=submit] {
+button {
     background: black;
     color: white;
+    width: 80px;
     height: 35px;
     cursor: pointer;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
-input[type=submit]:hover {
-    margin-top: 10px;
+button:hover {
+    margin-top: 3px;
 }
 
-input[type=submit]:active {
-    margin-top: -10px;
+button:active {
+    margin-top: -1px;
 }
 
 footer {
@@ -237,21 +250,6 @@ footer {
     padding-top: 10px
 }
 
-.loader {
-        border: 5px solid grey;
-        border-top: 5px solid #008fc4;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+#response {
+    margin-top: 40px
+}
