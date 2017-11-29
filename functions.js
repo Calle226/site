@@ -30,6 +30,8 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
     }
 });
 
+/*global $*/
+
 $("form").submit(function () {
     "use strict";
     event.preventDefault();
@@ -37,9 +39,21 @@ $("form").submit(function () {
         type: "POST",
         url: "submit.php",
         data: $(this).serialize(),
-        success: function () {
-            $("input[name='name'], input[name='email'], input[name='subject'], textarea").val("");
-            $("input[name='submit']").after("<p>Message sent!</p>");
+        success: function (response) {
+            if (response = "Message sent") {
+                $("input[name='name'], input[name='email'], input[name='subject'], textarea").val("");
+                $("input[name='submit']").after("<p>" + response + "</p>");
+            } else {
+                $("input[name='submit']").after("<p>" + response + "</p>");
+            }
         }
     });
 });
+
+/*$('.loader').bind('ajaxStart', function () {
+    "use strict";
+    $(this).show();
+}).bind('ajaxStop', function () {
+    "use strict";
+    $(this).hide();
+});*/
