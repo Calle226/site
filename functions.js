@@ -1,5 +1,4 @@
 $(document).on("scroll", function () {
-    "use strict";
     if ($(document).scrollTop() > 90) {
         $("header").addClass("shrink");
     } else {
@@ -8,7 +7,6 @@ $(document).on("scroll", function () {
 });
 
 $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
-    "use strict";
     if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -30,30 +28,15 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
     }
 });
 
-/*global $*/
-
 $("form").submit(function () {
-    "use strict";
     event.preventDefault();
     $.ajax({
         type: "POST",
         url: "submit.php",
         data: $(this).serialize(),
-        success: function (response) {
-            if (response = "Message sent") {
-                $("input[name='name'], input[name='email'], input[name='subject'], textarea").val("");
-                $("input[name='submit']").after("<p>" + response + "</p>");
-            } else {
-                $("input[name='submit']").after("<p>" + response + "</p>");
-            }
+        success: function () {
+            $("input[name='name'], input[name='email'], input[name='subject'], textarea").val("");
+            $("#response").html("Message sent!");
         }
     });
 });
-
-/*$('.loader').bind('ajaxStart', function () {
-    "use strict";
-    $(this).show();
-}).bind('ajaxStop', function () {
-    "use strict";
-    $(this).hide();
-});*/
