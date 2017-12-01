@@ -40,16 +40,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dbname = "db711614191";
     $port = "3306";
 
-    $conn = new PDO("mysql:host=$hostname;dbname=$dbname;port=$port", $username, $password);
+    try {
+        $conn = new PDO("mysql:host=$hostname;dbname=$dbname;port=$port", $username, $password);
 
-    $stmt = $conn->prepare("INSERT INTO submissions (name, email, ip)
-    VALUES(:name, :email, :ip)");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt->bindParam(":name", $name);
-    $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":ip", $ip);
+        $stmt = $conn->prepare("INSERT INTO submissions (name, email, ip)
+        VALUES(:name, :email, :ip)");
 
-    $stmt->execute();
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":ip", $ip);
+
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
     
     $conn = $stmt = null;
     
