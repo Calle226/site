@@ -28,7 +28,7 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
     }
 });
 
-/*$("form").submit(function () {
+$("form").submit(function () {
     event.preventDefault();
     $.ajax({
         type: "POST",
@@ -39,4 +39,4 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
             $("#response").html("Message sent!");
         }
     });
-});*/
+});
