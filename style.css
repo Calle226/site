@@ -9,9 +9,9 @@ header {
     background-color: #121010;
     text-align: center;
     letter-spacing: 1px;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
+    transition: padding 0.2s ease-in-out;
+    -webkit-transition: padding 0.2s ease-in-out;
+    -moz-transition: padding 0.2s ease-in-out;
     z-index: 99;
     top: 0;
     position: fixed;
@@ -23,6 +23,7 @@ h1 {
     color: white;
     margin: 0;
     cursor: pointer;
+    display: inline;
 }
 
 header a {
@@ -42,10 +43,9 @@ div a {
     text-decoration: none;
     color: white;
     text-decoration: underline;
-    transition: all 1s ease;
 }
 
-div a:hover {
+header a:hover {
     color: #9f9f9f;
 }
 
@@ -57,7 +57,7 @@ div a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5px 0 5px;
-    display: block
+    display: block;
 }
 
 span {
@@ -71,16 +71,19 @@ a[href*="services"] {
     padding: 0px 30px;
 }
 
-a:hover {
-    transform: translateY(-10px);
+.fa-linkedin {
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 30px;
 }
 
 #hero {
-    background: url("https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg");
+    background: url("hero.jpg");
     width: 100%;
     height: 820px;
     position: relative;
-    margin-top: 110px
+    margin-top: 110px;
 }
 
 #hero div {
@@ -143,36 +146,48 @@ form {
     #about p:nth-child(1) {
         width: 90%;
     }
-    
+
     #services {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     #services div {
         margin-bottom: 30px;
-        width: 80%
+        width: 80%;
     }
-    
+
     form {
         width: 80%;
         padding: 5px;
-        
     }
-    
+
     header {
         transition: all 0.1s ease-in-out;
         -webkit-transition: all 0.1s ease-in-out;
         -moz-transition: all 0.1s ease-in-out;
     }
-    
+
     h1 {
         font-size: 23px;
     }
-    
+
     div a {
         font-size: 23px;
+    }
+
+    #hero h2 {
+        font-size: 35px;
+    }
+    
+    .fa-linkedin {
+        right: 10px;
+        top: 17px;
+    }
+    
+    section > p:first-child {
+        width: 90%
     }
 }
 
@@ -186,37 +201,45 @@ section p {
     font-size: 20px;
     text-align: center;
     padding: 0 30px;
+    word-spacing: 3px;
 }
 
-section>p:first-child {
+i {
+    margin: 25px 0 -5px 0;
+}
+
+section > p:first-child {
     margin: 0 auto;
     width: 60%;
     word-spacing: 3px;
 }
 
-#services p:first-child {
+#services p:nth-child(2) {
     font-size: 25px;
+    margin-bottom: -50px;
 }
 
-#services p:nth-of-type(2) {
-    font-size: 20px;
-    margin-top: -55px;
-    word-wrap: break-word;
-}
-
-input[type=text], input[type=email], textarea {
+input[type=text],
+input[type=email],
+textarea {
     width: 85%;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
-input[type=text], input[type=email] {
+input[type=text],
+input[type=email] {
     height: 30px;
 }
 
 textarea {
+    width: 85%;
     height: 250px;
     margin-top: 5px;
+    overflow: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 button {
@@ -226,18 +249,21 @@ button {
     height: 35px;
     cursor: pointer;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 8px auto 0 auto;
     left: 0;
     right: 0;
 }
 
+/*.fa-spinner {
+    margin-top: 50px
+}*/
+
 button:hover {
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 button:active {
-    margin-top: -1px;
+    margin-top: 8px;
 }
 
 footer {
@@ -247,9 +273,9 @@ footer {
     color: white;
     font-size: 15px;
     text-align: center;
-    padding-top: 10px
+    padding-top: 10px;
 }
 
 #response {
-    margin-top: 40px
+    margin-top: 40px;
 }
