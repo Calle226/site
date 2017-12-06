@@ -282,3 +282,7 @@ footer {
 #response {
     margin-top: 40px;
 }
+
+.error {
+    color: red;
+}
