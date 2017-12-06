@@ -38,17 +38,18 @@ $('form').submit(function () {
     })
         .done(function (data) {
             if (data.nameErr === '' && data.emailErr === '' && data.messageErr === '') {
+                $('.error').remove();
                 $("input[name='name'], input[name='email'], input[name='subject'], textarea").val('');
-                $('button').after('<p>Message sent!</p>');
+                $('button').after('<p class="response">Message sent!</p>');
             } else {
                 if (data.messageErr !== '') {
-                    $('button').after(data.messageErr);
+                    $('#message').after(data.messageErr);
                 }
                 if (data.emailErr !== '') {
-                    $('button').after(data.emailErr);
+                    $('#email').after(data.emailErr);
                 }
                 if (data.nameErr !== '') {
-                    $('button').after(data.nameErr);
+                    $('#name').after(data.nameErr);
                 }
             }
         });
