@@ -42,11 +42,11 @@ div a {
     font-size: 23px;
     text-decoration: none;
     color: white;
+    text-decoration: underline
 }
 
 header a:hover {
     color: #9f9f9f;
-    text-decoration: underline
 }
 
 .shrink {
@@ -132,13 +132,13 @@ section {
 }
 
 form {
-    background: lightgray;
+    background: #b5b5b5;
     text-align: center;
     font-size: 22px;
     width: 60%;
-    height: 460px;
+    height: 535px;
     padding: 10px 0;
-    margin: auto;
+    margin: 20px auto 0;
     font-size: 25px;
 }
 
@@ -231,6 +231,7 @@ textarea {
     font-family: 'Oswald', sans-serif;
     padding: 0;
     border: inset initial 2px;
+    margin-bottom: 15px
 }
 
 input[type=text],
@@ -279,10 +280,14 @@ footer {
     padding-top: 10px;
 }
 
-#response {
-    margin-top: 40px;
+.response {
+    margin-top: 45px;
 }
 
 .error {
     color: red;
+    font-size: 15px;
+    position: absolute;
+    margin-top: -18px;
+    margin-left: 26px;
 }
