@@ -24,29 +24,29 @@ if (empty($_POST['message'])) {
     $message = $_POST['message'];
 }
 
-if ($nameError === '' && $emailError === '' && messageError === '') {
+if ($nameErr === '' && $emailErr === '' && messageErr === '') {
     $hostname = 'db711614191.db.1and1.com';
     $username = 'dbo711614191';
     $password = '';
     $dbname = 'db711614191';
     $port = '3306';
-
+    
     $conn = new PDO("mysql:host=$hostname;dbname=$dbname;port=$port", $username, $password);
-
-    $stmt = $conn->prepare("INSERT INTO submissions (name, email, ip)
+    
+    $stmt = $conn->prepare("INSERT INTO submissions (name, email, subject, ip)
     VALUES(:name, :email, :subject, :ip)");
-
+    
     $stmt->bindParam(":name", $name);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":subject", $subject);
     $stmt->bindParam(":ip", $ip);
-
+    
     $stmt->execute();
-
+    
     $conn = $stmt = null;
-
+    
     require 'PHPMailer-6.0.2/src/PHPMailer.php';
-
+    
     $mail = new PHPMailer\PHPMailer\PHPMailer;
     $mail->Host = 'auth.smtp.1and1.co.uk';
     $mail->setFrom("$email", "$name");
@@ -54,7 +54,7 @@ if ($nameError === '' && $emailError === '' && messageError === '') {
     $mail->isHTML(true);
     $mail->Subject = "$subject";
     $mail->Body = "<body style='white-space: pre-wrap;'>$message</body>";
-    $mail->send()
+    $mail->send();
 } else {
     $errors = ['nameErr' => "$nameErr", 'emailErr' => "$emailErr", 'messageErr' => "$messageErr"];
     echo json_encode($errors);
