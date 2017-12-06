@@ -28,15 +28,34 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
     }
 });
 
-$("form").submit(function () {
+$('form').submit(function () {
     event.preventDefault();
     $.ajax({
-        type: "POST",
-        url: "submit.php",
-        data: $(this).serialize(),
-        success: function () {
-            $("input[name='name'], input[name='email'], input[name='subject'], textarea").val("");
-            $("#response").html("Message sent!");
-        }
-    });
+        type: 'POST',
+        url: 'submit.php',
+        dataType: 'json',
+        data: $(this).serialize()
+    })
+        .done(function (data) {
+            if (data.nameErr === '' && data.emailErr === '' && data.messageErr === '') {
+                $("input[name='name'], input[name='email'], input[name='subject'], textarea").val('');
+                $('button').after('<p>Message sent!</p>');
+            } else {
+                if (data.messageErr !== '') {
+                    $('button').after(data.messageErr);
+                }
+                if (data.emailErr !== '') {
+                    $('button').after(data.emailErr);
+                }
+                if (data.nameErr !== '') {
+                    $('button').after(data.nameErr);
+                }
+            }
+        });
 });
+
+/*$(document).bind('ajaxStart', function () {
+    $('button').after("<i id='loader' class='fa fa-spinner fa-pulse fa-fw'></i>");
+}).bind('ajaxStop', function () {
+    $('#loader').remove();
+});*/
