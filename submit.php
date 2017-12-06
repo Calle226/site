@@ -1,34 +1,30 @@
-<!doctype html>
-<html>
-<head>
-    <title></title>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' type='text/css' href='style.css'>
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
-</head>
-<body>
 <?php
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $name = $email = $message = '';
-    $subject = $_POST['subject'];
-    
-    if (empty($_POST['name'])) {
-    } else {
-        $name = $_POST['name'];
-    }
+header('Content-Type: application/json');
+$name = $email = $message = $nameErr = $emailErr = $messageErr = '';
+$subject = $_POST['subject'];
+$ip = $_SERVER['REMOTE_ADDR'];
 
-    if (empty($_POST['email'])) {
-    } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-    } else {
-        $email = $_POST['email'];
-    }
+if (empty($_POST['name'])) {
+    $nameErr = '<p class="error">Name is required</p>';
+} else {
+    $name = $_POST['name'];
+}
 
-    if (empty($_POST['message'])) {
-    } else {
-        $message = $_POST['message'];
-    }
+if (empty($_POST['email'])) {
+    $emailErr = '<p class="error">Email is required</p>';
+} elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+    $emailErr = '<p class="error">Email is invalid</p>';
+} else {
+    $email = $_POST['email'];
+}
 
+if (empty($_POST['message'])) {
+    $messageErr = '<p class="error">Message is required</p>';
+} else {
+    $message = $_POST['message'];
+}
+
+if ($nameError === '' && $emailError === '' && messageError === '') {
     $hostname = 'db711614191.db.1and1.com';
     $username = 'dbo711614191';
     $password = '';
@@ -46,9 +42,9 @@
     $stmt->bindParam(":ip", $ip);
 
     $stmt->execute();
-    
+
     $conn = $stmt = null;
-    
+
     require 'PHPMailer-6.0.2/src/PHPMailer.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer;
@@ -59,6 +55,8 @@
     $mail->Subject = "$subject";
     $mail->Body = "<body style='white-space: pre-wrap;'>$message</body>";
     $mail->send()
+} else {
+    $errors = ['nameErr' => "$nameErr", 'emailErr' => "$emailErr", 'messageErr' => "$messageErr"];
+    echo json_encode($errors);
+}
 ?>
-</body>
-</html>
