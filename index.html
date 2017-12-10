@@ -1,13 +1,14 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>London Web Development and Design | Elliot Callaghan</title>
     <meta name="description" content="London based freelance web developer and designer with plenty of experience designing, creating and managing websites for individuals and companies of all sizes.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121010">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110557886-1"></script>
     <script>
@@ -26,11 +27,11 @@
     <a href="#top">
         <h1>Elliot Callaghan</h1>
     </a>
-    <a target="_blank" href="https://www.linkedin.com/in/elliot-callaghan-3ba92a13b" class="fa fa-linkedin fa-lg" aria-hidden="true"></a>
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/elliot-callaghan-3ba92a13b" class="fa fa-linkedin fa-lg" aria-hidden="true"></a>
     <nav>
         <div>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#services-title">Services</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -46,7 +47,7 @@
     <section>
         <p>Professional Web Developer based in North West London doing freelance work in my spare time. Open to creating any website you need, be it personal or for your business. Happy to create some drafts based on your basic needs if you're unsure of exactly what design or more advanced features you want for your site.<br><br>Currently working as a Web Developer for an IT Support company where I've been responsible for managing the company site, and creating websites and web-based software.<br><br>Plenty of experience in languages like HTML, CSS, JavaScript, PHP, and Java, as well as additional technologies including databases, mail servers, and web hosting.</p>
     </section>
-    <span id="services"></span>
+    <span id="services-title"></span>
     <h3>Services</h3>
     <section id="services">
         <div>
@@ -80,9 +81,13 @@
     <section>
         <p>Any queries or questions?<br>Just fill out the form below and I'll get back to you as soon as possible.</p>
         <form method="POST" action="submit.php">
+            <label for="name"></label>
             <input placeholder="Name*" name="name" id="name" type="text" required><br>
+            <label for="email"></label>
             <input placeholder="Email Address*" name="email" id="email" type="email" required><br>
+            <label for="subject"></label>
             <input placeholder="Subject" name="subject" type="text"><br>
+            <label for="message"></label>
             <textarea placeholder="Message*" name="message" id="message" required></textarea><br>
             <button type="submit" name="submit">Submit</button>
             <!--<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>-->
@@ -93,6 +98,6 @@
     <p>&copy; Callaghan Development</p>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="functions.js"></script>
+<script src="functions.min.js"></script>
 </body>
 </html>
