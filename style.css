@@ -72,10 +72,14 @@ a[href*="services"] {
 }
 
 .fa-linkedin {
-    color: white;
+    color: #0769ad;
     position: absolute;
     right: 30px;
     top: 30px;
+}
+
+.fa {
+    color: #0769ad
 }
 
 #hero {
@@ -132,7 +136,7 @@ section {
 }
 
 form {
-    background: #b5b5b5;
+    background: #6f767b;
     text-align: center;
     font-size: 22px;
     width: 60%;
@@ -247,7 +251,7 @@ textarea {
 }
 
 button {
-    background: black;
+    background: #0769ad;
     color: white;
     width: 80px;
     height: 35px;
@@ -256,6 +260,7 @@ button {
     margin: 8px auto 0 auto;
     left: 0;
     right: 0;
+    border: 1px black solid;
 }
 
 /*.fa-spinner {
@@ -263,11 +268,7 @@ button {
 }*/
 
 button:hover {
-    margin-top: 6px;
-}
-
-button:active {
-    margin-top: 8px;
+    color: #095990
 }
 
 footer {
